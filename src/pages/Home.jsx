@@ -6,7 +6,7 @@ import HeroBenner from "../components/HeroBenner";
 
 const Home = () => {
   const [bodyPart, setBodyPart] = useState("all");
-  const [exercise, setExercises] = useState([]);
+  const [exercises, setExercises] = useState([]);
 
   return (
     <>
@@ -17,9 +17,10 @@ const Home = () => {
           bodyPart={bodyPart}
           setBodyPart={setBodyPart}
         />
-        <Exercises  setExercises={setExercises}
+        <Exercises  
+        setExercises={setExercises}
           bodyPart={bodyPart}
-          setBodyPart={setBodyPart}/>
+          exercises={exercises}/>
       </Box>
     </>
   );
