@@ -3,7 +3,7 @@ import Pagination from '@mui/material/Pagination';
 import { Box, Typography, Stack } from "@mui/material";
 import { exerciseOptions, fetchData } from "../utils/fetchData";
 import ExerciseCard from "./ExerciseCard";
-import Loader from "./Loader";
+import Loader from '../components/Loader'
 
 const Exercises = ({ exercises, setExercises, bodyPart }) => {
 
@@ -30,13 +30,14 @@ const Exercises = ({ exercises, setExercises, bodyPart }) => {
       }else{
         exercisesData = await fetchData(`https://exercisedb.p.rapidapi.com/exercises/bodyPart/${bodyPart}`, exerciseOptions);
       }
+       // eslint-disable-next-line
       setExercises(exercisesData)
     }
     fetchExedrcisesData()
   },[bodyPart])
 
  
-  console.log(exercises);
+  if (!currentExercises.length) return <Loader/>
   return (
     <Box
       id="exercises"
@@ -55,9 +56,8 @@ const Exercises = ({ exercises, setExercises, bodyPart }) => {
         flexWrap="wrap"
         justifyContent="center"
       >
-      
         {currentExercises.map((exercise, index) => (
-          <ExerciseCard key={index} exercise={exercise} /> 
+          <ExerciseCard key={index} exercise={exercise} />
         ))}
       </Stack>
       <Stack mt="100px" alignItems="center">
