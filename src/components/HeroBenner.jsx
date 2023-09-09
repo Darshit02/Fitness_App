@@ -1,6 +1,7 @@
 import React from "react";
 import { Box, Stack, Typography, Button } from "@mui/material";
 import HeroBennerImage from "../assets/images/banner.png";
+import { UserButton } from "@clerk/clerk-react";
 const HeroBenner = () => {
   return (
     <Box
@@ -33,7 +34,6 @@ const HeroBenner = () => {
       }} fontSize='200px'>
         Exercise
       </Typography>
-      <img src={HeroBennerImage} alt="hero-benner-img" className="hero-banner-img " />
     </Box>
   );
 };
